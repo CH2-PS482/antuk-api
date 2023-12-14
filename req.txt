@@ -1,5 +1,5 @@
-confirm password
-unique phone number
+confirm password (done)
+unique phone number (done)
 validation
 history?????
 

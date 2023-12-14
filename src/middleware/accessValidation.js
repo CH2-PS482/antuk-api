@@ -1,19 +1,27 @@
+require('dotenv').config()
+
+const jwt = require('jsonwebtoken')
+
 const accessValidation = (req, res, next) => {
-    const {authorization} = req.headers
+    const token = req.headers.authorization ? req.headers.authorization.split(' ')[1] : null;
 
-    if(!authorization){
+    if (!token) {
         return res.status(401).json({
-            message: 'Token required'
-        })
+            message: 'Token not provided'
+        });
     }
 
-    const token = authorization.split(' ')[1]
-    const secret = process.env.SECRETKEY
+    jwt.verify(token, process.env.SECRETKEY, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({
+                message: 'Invalid token'
+            });
+        }
 
-    try {
-        const jwtDecode = jwt.verify(token, secret)
-    } catch (error){
-        
-    }
-
+        req.decodedToken = decoded
+        req.idUser = decoded.idUser
+    })
+    next()
 }
+
+module.exports = accessValidation

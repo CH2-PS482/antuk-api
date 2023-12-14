@@ -2,15 +2,12 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 const authModel = require('../models/auth')
-// const {registerValidation, loginValidation, editProfileValidation, resetPasswordValidation} = require('../validation/validation')
 
 const register = async (req, res) => {
     const {body} = req
-    
-    try{
-        // confirm password
-        await authModel.register(body)
 
+    try{
+        await authModel.register(body)
             res.status(201).json({
             message: 'Register success',
             data: {
@@ -28,11 +25,9 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     const {phoneNumber, password} = req.body
-    console.log(phoneNumber);
 
     try{
         const user = await authModel.login(phoneNumber)
-        console.log(user);
         if(!user){
             return res.status(404).json({
                 message: 'User not found'
@@ -41,8 +36,13 @@ const login = async (req, res) => {
         const isPasswordValid = await bcrypt.compare(password, user.password)
 
         if(!isPasswordValid){ 
+            return res.status(401).json({
+                message: 'Wrong password'
+            })
+        } else {
             const token = jwt.sign({
-                phoneNumber
+                phoneNumber: user.phoneNumber,
+                idUser: user.idUser
             },process.env.SECRETKEY,{
                 expiresIn: '7d',
             }) 
@@ -50,16 +50,12 @@ const login = async (req, res) => {
             return res.status(200).json({
                 message: 'Log in success',
                 data: {                    
-                    id: user.id,
                     phoneNumber: user.phoneNumber,
                     fullName: user.fullName,
-                    token
+                    token: token
                 }
             })
-        } else {
-            return res.status(401).json({
-                message: 'Wrong password'
-            })
+
         }
     } catch (error){
         res.status(500).json({

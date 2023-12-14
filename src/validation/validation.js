@@ -1,89 +1,46 @@
-const Joi = require('joi')
+const { registerSchema, loginSchema, editProfileSchema } = require("./userValidation")
 
-const registerSchema = Joi.object({
-    fullName: Joi.string()
-            .max(50)
-            .required(),
 
-    phoneNumber: Joi.string()
-            .min(10)
-            .max(20)
-            .required(),
+const registerValidation = async (req, res, next) => {
+    const {body} = req
 
-    password: Joi.string()
-            .max(50)
-            .required(),
-
-    confirmPassword: Joi.ref('password')
-})
-
-const loginSchema = Joi.object({
-    phoneNumber: Joi.string()
-        .min(10)
-        .max(20)
-        .required(),
-
-    password: Joi.string()
-            .max(50)
-            .required()
-
-    // pass true false?
-
-})
-
-const editProfileSchema = Joi.object({
-    fullName: Joi.string()
-            .max(50)
-            .required(),
-
-    phoneNumber: Joi.string()
-    .min(10)
-    .max(20)
-    .required(),
-})
-
-const resetPasswordSchema = Joi.object({
-    password: Joi.string()
-            .max(50)
-            .required(),
-
-    confirmPassword: Joi.ref('password')
-})
-
-const registerValidation = async (body) => {
     try{
         await registerSchema.validateAsync(body)
-        return true
+        next()
     } catch (error) {
-        throw error
+        res.status(400).json({
+            message: 'Validation error',
+            error: error.message
+        })
     }
 }
 
-const loginValidation = async (body) => {
+const loginValidation = async (req, res, next) => {
+    const {body} = req
+
     try{
         await loginSchema.validateAsync(body)
-        return true
+        next()
     } catch (error) {
-        throw error
+        res.status(400).json({
+            message: 'Validation error',
+            error: error.message
+        })
     }
 }
 
-const editProfileValidation = async (body) => {
+const editProfileValidation = async (req, res, next) => {
     try{
+        const {body} = req
+
         await editProfileSchema.validateAsync(body)
-        return true
+        next()
     } catch (error) {
-        throw error
+        res.status(400).json({
+            message: 'Validation error',
+            error: error.message
+        })
     }
 }
 
-const resetPasswordValidation = async (body) => {
-    try{
-        await resetPasswordSchema.validateAsync(body)
-        return true
-    } catch (error) {
-        throw error
-    }
-}
-
-module.exports = {registerValidation, loginValidation, editProfileValidation, resetPasswordValidation}
+module.exports = {registerValidation, loginValidation, editProfileValidation}
