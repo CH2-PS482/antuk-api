@@ -1,0 +1,15 @@
+{
+	"id": "e4401fea-3a68-4bfc-9a5b-dfac2642239a",
+	"name": "Antuk",
+	"values": [
+		{
+			"key": "url",
+			"value": "localhost:4000",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2023-12-17T11:33:14.715Z",
+	"_postman_exported_using": "Postman/10.21.3"
+}

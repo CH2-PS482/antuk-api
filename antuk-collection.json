@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "18069e40-8403-4a18-9cb9-e73d2c391163",
+		"name": "Antuk (Anti-Ngantuk for Car and Truck Drivers)",
+		"description": "Base URL: localhost:4000 (changed soon)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29991228"
+	},
+	"item": [
+		{
+			"name": "Server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "This endpoint is used for check server status and connectivity."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "fullName",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fullName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "phoneNumber",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "confirmPassword",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/auth/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					],
+					"query": [
+						{
+							"key": "fullname",
+							"value": "Arina",
+							"disabled": true
+						},
+						{
+							"key": "phoneNumber",
+							"value": "089595959595",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "happyhappy",
+							"disabled": true
+						}
+					]
+				},
+				"description": "This endpoint is used for register a new user account"
+			},
+			"response": []
+		},
+		{
+			"name": "Log In",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phoneNumber",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/auth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "This endpoint is used for log into the application."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6IjAwMDAwMDAwMDAiLCJpZFVzZXIiOiI0MzA0N2ZhMiIsImlhdCI6MTcwMjgwOTQ0NiwiZXhwIjoxNzAzNDE0MjQ2fQ.1dNJu_3_lKpCN-hJE1--sGjmtp2XZoMzLaNBP__JKYE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile"
+					]
+				},
+				"description": "This endpoint is used for show profile"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6IjAwMDAwMDAwMDAiLCJpZFVzZXIiOiI0MzA0N2ZhMiIsImlhdCI6MTcwMjgwOTQ0NiwiZXhwIjoxNzAzNDE0MjQ2fQ.1dNJu_3_lKpCN-hJE1--sGjmtp2XZoMzLaNBP__JKYE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phoneNumber",
+							"value": "0000000000",
+							"type": "text"
+						},
+						{
+							"key": "fullName",
+							"value": "Arina Menangis",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/profile/edit",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile",
+						"edit"
+					]
+				},
+				"description": "This endpoint is used for edit profile"
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6IjAwMDAwMDAwMDAiLCJpZFVzZXIiOiI0MzA0N2ZhMiIsImlhdCI6MTcwMjgwOTQ0NiwiZXhwIjoxNzAzNDE0MjQ2fQ.1dNJu_3_lKpCN-hJE1--sGjmtp2XZoMzLaNBP__JKYE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "confirmPassword",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/profile/reset-password",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile",
+						"reset-password"
+					]
+				},
+				"description": "This endpoint is used for reset password"
+			},
+			"response": []
+		},
+		{
+			"name": "Add History",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6IjA4MTIzNDU2Nzg5MCIsImlkVXNlciI6ImMzNjFjOTJlIiwiaWF0IjoxNzAyNzUxOTY3LCJleHAiOjE3MDMzNTY3Njd9.J_ASlPUWt5ec0T5-lVLENhw2mQ51kP8U5UsE1kynVB8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/history",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"history"
+					]
+				},
+				"description": "This endpoint is used for add history after stop driving"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All History",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6IjAwMDAwMDAwMDAiLCJpZFVzZXIiOiI0MzA0N2ZhMiIsImlhdCI6MTcwMjgwOTQ0NiwiZXhwIjoxNzAzNDE0MjQ2fQ.1dNJu_3_lKpCN-hJE1--sGjmtp2XZoMzLaNBP__JKYE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/history",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"history"
+					]
+				},
+				"description": "This endpoint is used for show all history"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
