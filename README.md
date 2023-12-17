@@ -233,21 +233,23 @@ npm run start-dev
 - Response Body: `200 OK`
 
 ```
+{
     "message": "Get all history success",
     "data": [
         [
             {
-                "idHistory": "185713018d",
+                "idHistory": "0f3df87693",
+                "date": "18 Desember 2023",
+                "duration": "00:00:00",
+                "totalWarnings": 0
+            },
+            {
+                "idHistory": "185714018d",
                 "date": "17 Desember 2023",
                 "duration": "00:00:00",
                 "totalWarnings": 0
             }
         ]
-        [
-            {
-                2nd history
-            }
-        ]
-            ... and so on
     ]
+}
 ```
