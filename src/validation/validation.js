@@ -1,5 +1,4 @@
-const { registerSchema, loginSchema, editProfileSchema } = require("./userValidation")
-
+const { registerSchema, loginSchema, editProfileSchema, resetPasswordSchema } = require("./userValidation")
 
 const registerValidation = async (req, res, next) => {
     const {body} = req
@@ -43,4 +42,18 @@ const editProfileValidation = async (req, res, next) => {
     }
 }
 
-module.exports = {registerValidation, loginValidation, editProfileValidation}
+const resetPasswordValidation = async (req, res, next) => {
+    try{
+        const {body} = req
+
+        await resetPasswordSchema.validateAsync(body)
+        next()
+    } catch (error) {
+        res.status(400).json({
+            message: 'Validation error',
+            error: error.message
+        })
+    }
+}
+
+module.exports = {registerValidation, loginValidation, editProfileValidation, resetPasswordValidation}

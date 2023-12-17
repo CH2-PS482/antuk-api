@@ -5,7 +5,7 @@ const { registerValidation, loginValidation } = require('../validation/validatio
 
 const route = express.Router()
 
-route.post('/register', registerValidation, authController.register)
-route.post('/login', loginValidation, authController.login)
+route.post('/register', registerValidation, authController.registerController)
+route.post('/login', loginValidation, authController.loginController)
 
 module.exports = route

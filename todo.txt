@@ -1,0 +1,92 @@
+
+
+- GET
+
+# method: GET
+
+# endpoint: profile
+
+# HEADERS:
+
+    - authorization: token
+
+# response body (success)
+
+{
+"message": "",
+"data": {
+"fullname": "",
+"phone number: ""
+}
+}
+
+# response body (failed)
+
+{
+"message": "",
+}
+
+######
+
+- UPDATE
+
+# method: PATCH
+
+# endpoint: profile/edit
+
+# HEADERS:
+
+    - authorization: token
+
+# request body:
+
+{
+"fullname': "",
+"phone number": "",
+}
+
+# response body (success):
+
+{
+"message": "",
+"data": {
+"fullname": "",
+"phone number": ""
+}
+}
+
+# response body (failed)
+
+{
+"message": ""
+}
+
+########
+
+- FORGOT PASSWORD
+
+# method: PUT
+
+# endpoint: profile/reset-password
+
+# HEADERS:
+
+    - authorization: token
+
+# request body:
+
+{
+"password": ""
+}
+
+# response body (success)
+
+{
+"message": "",
+}
+
+# response body (failed)
+
+{
+"message": "",
+}

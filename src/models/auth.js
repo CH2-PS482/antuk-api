@@ -1,39 +1,38 @@
 const dbPool = require('../config/database')
+
 const bcrypt = require('bcrypt')
+const {uid} = require('uid')
 
-const register = async (body) => {
-    const {password, confirmPassword} = body
 
+const registerModel = async (body) => {
+    const {password} = body
+
+    const idUser = uid(8)
     const hashedPassword = await bcrypt.hash(password, 10)
-
-    // Validate
-    if (password !== confirmPassword) {
-        throw new Error('Password do not match'); // 400
-    }
 
     const existingUserQuery = `     SELECT * FROM users 
                                     WHERE phoneNumber = '${body.phoneNumber}'`
-    const [existingUserRows] = await dbPool.execute(existingUserQuery);
+    const [existingUserRows] = await dbPool.execute(existingUserQuery)
 
     if (existingUserRows.length > 0) {
-        throw new Error('Phone number already registred') // 400
+        const error = new Error('Phone number already registered')
+        throw error
     }
 
-    const SQLQuery = `  INSERT INTO users (fullName, phoneNumber, password) 
+    const SQLQuery = `  INSERT INTO users (idUser, fullName, phoneNumber, password) 
                         VALUES (
+                            '${idUser}',
                             '${body.fullName}', 
                             '${body.phoneNumber}',
                             '${hashedPassword}')`
     return dbPool.execute(SQLQuery)
 }
 
-const login = async (phoneNumber) => {
+const loginModel = async (phoneNumber) => {
     const SQLQuery = `  SELECT * FROM users 
                         WHERE phoneNumber = '${phoneNumber}'`
     const [rows] = await dbPool.execute(SQLQuery)
     return rows[0]
 }
 
-
-
-module.exports = {register, login}
+module.exports = {registerModel, loginModel}

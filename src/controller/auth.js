@@ -3,19 +3,25 @@ const jwt = require('jsonwebtoken')
 
 const authModel = require('../models/auth')
 
-const register = async (req, res) => {
+const registerController = async (req, res) => {
     const {body} = req
+    try{            
+        await authModel.registerModel(body)
 
-    try{
-        await authModel.register(body)
-            res.status(201).json({
+        return res.status(201).json({
             message: 'Register success',
             data: {
+                // idUser: user.idUser,
                 fullName: body.fullName,
                 phoneNumber: body.phoneNumber
             }
         })
     } catch (error){
+        if (error.message === 'Phone number already registered'){
+            return res.status(400).json({
+                message: error.message
+            })
+        }
         res.status(500).json({
             message: 'Server error',
             serverMessage: error.message
@@ -23,20 +29,20 @@ const register = async (req, res) => {
     }
 }
 
-const login = async (req, res) => {
+const loginController = async (req, res) => {
     const {phoneNumber, password} = req.body
 
     try{
-        const user = await authModel.login(phoneNumber)
+        const user = await authModel.loginModel(phoneNumber)
         if(!user){
-            return res.status(404).json({
+            return res.status(400).json({
                 message: 'User not found'
             })
         }
         const isPasswordValid = await bcrypt.compare(password, user.password)
 
         if(!isPasswordValid){ 
-            return res.status(401).json({
+            return res.status(400).json({
                 message: 'Wrong password'
             })
         } else {
@@ -49,13 +55,13 @@ const login = async (req, res) => {
 
             return res.status(200).json({
                 message: 'Log in success',
-                data: {                    
+                data: {               
+                    idUser: user.idUser,     
                     phoneNumber: user.phoneNumber,
                     fullName: user.fullName,
                     token: token
                 }
             })
-
         }
     } catch (error){
         res.status(500).json({
@@ -65,4 +71,4 @@ const login = async (req, res) => {
     }
 }
 
-module.exports = {register, login}
+module.exports = {registerController, loginController}
