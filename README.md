@@ -4,10 +4,10 @@ Antuk (Anti-Ngantuk) aims to create an efficient system to prevent drowsiness wh
 
 ## **Table of Contents**
 
-- [Tech Stack]()
-- [Installation]()
-- [How to Use]()
-- [API Endpoints]()
+- [Tech Stack](https://github.com/aqmarinas/antuk?tab=readme-ov-file#tech-stack)
+- [Installation](https://github.com/aqmarinas/antuk?tab=readme-ov-file#installation)
+- [Start the Server](https://github.com/aqmarinas/antuk?tab=readme-ov-file#start-the-server)
+- [API Endpoints](https://github.com/aqmarinas/antuk?tab=readme-ov-file#api-endpoints)
 
 ## Tech Stack
 
@@ -64,6 +64,8 @@ SECRETKEY=
 > Don't forget rename '.env.example' file to '.env'
 
 ## Start the Server
+
+Execute this script in the terminal:
 
 ```bash
 npm run start
