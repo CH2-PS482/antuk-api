@@ -39,15 +39,21 @@ Antuk (Anti-Ngantuk) aims to create an efficient system to prevent drowsiness wh
 git clone https://github.com/aqmarinas/antuk.git
 ```
 
-2. Install required libraries
+2. Change the directory
 
 ```bash
-npm install [library-name]
+cd antuk
 ```
 
-3. Import antuk.sql to MySQL GUI Tool
+3. Install required libraries
 
-4. Setting up. env.example file
+```bash
+npm install LIBRARY-NAME
+```
+
+3. Import 'antuk.sql; to MySQL GUI Tool
+
+4. Setting up '.env.example' file
 
 ```bash
 PORT=
@@ -61,7 +67,7 @@ SECRETKEY=
 ```
 
 > [!WARNING]
-> Don't forget rename '.env.example' file to '.env'
+> Don't forget to rename '.env.example' file to '.env'
 
 ## Start the Server
 
@@ -71,7 +77,7 @@ Execute this script in the terminal:
 npm run start
 ```
 
-If you are using nodemon, use this command:
+If you are using nodemon, use this script:
 
 ```bash
 npm run start-dev
