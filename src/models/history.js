@@ -28,13 +28,15 @@ const addHistoryModel = async () => {
                         VALUES ('${idHistory}', '${date}')`
                             
     // const SQLQuery = `  INSERT INTO history (idHistory, date, duration, totalWarnings)
-    //                     VALUES ('${idHistory}', '${date}', '${dura}', '${totalWarnings}')`
+    //                     VALUES ('${idHistory}', '${date}', '${duration}', '${totalWarnings}')`
     return dbPool.execute(SQLQuery)
 }
 
 const getHistoryModel = async () => {
     const SQLQuery = `SELECT * FROM history`
-    return dbPool.execute(SQLQuery)
+    // return dbPool.execute(SQLQuery)
+    const [historyData] = await dbPool.execute(SQLQuery)
+    return [historyData]
 }
 
 module.exports = {addHistoryModel, getHistoryModel}
