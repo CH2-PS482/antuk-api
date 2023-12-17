@@ -242,10 +242,12 @@ npm run start-dev
                 "duration": "00:00:00",
                 "totalWarnings": 0
             }
+        ]
+        [
             {
                 2nd history
             }
-            ... and so on
         ]
+            ... and so on
     ]
 ```
