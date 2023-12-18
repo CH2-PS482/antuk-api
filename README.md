@@ -17,13 +17,13 @@ Antuk (Anti-Ngantuk) aims to create an efficient system to prevent drowsiness wh
 
 - **bcrypt**: used for password hashing.
 - **body-parser**: for handle URL-encoded data.
-- **dotenv**: loads environment variables from a '.env' file into 'process.env'
-- **express**: create API
+- **dotenv**: loads environment variables from a `.env` file into `process.env`.
+- **express**: create API.
 - **joi**: used for input validation.
 - **jsonwebtoken**: used to generate and verify JSON Web Tokens (JWTs) in authentication workflows.
 - **mysql2**: interact with MySQL databases.
 - **uid**: used to generate unique identifiers.
-- **nodemon**: monitors changes in the Node.js and automatically restart the server when files are modified
+- **nodemon**: monitors changes in the Node.js and automatically restart the server when files are modified.
 
 **Database:** MySQL
 
@@ -53,7 +53,7 @@ npm install LIBRARY-NAME
 
 3. Import 'antuk.sql; to MySQL GUI Tool
 
-4. Setting up '.env.example' file
+4. Setting up `.env.example` file
 
 ```bash
 PORT=
@@ -67,7 +67,7 @@ SECRETKEY=
 ```
 
 > [!WARNING]
-> Don't forget to rename '.env.example' file to '.env'
+> Don't forget to rename `.env.example` file to '.env'
 
 ## Start the Server
 
@@ -100,7 +100,7 @@ npm run start-dev
 - Description: used to register a new user account
 - Request Body:
 
-```
+```bash
 {
     "fullName": "Arina Menangis",
     "phoneNumber": "081234567890",
@@ -111,7 +111,7 @@ npm run start-dev
 
 - Response Body: `201 Created`
 
-```
+```bash
 {
     "message": "Register success",
     "data": {
@@ -127,13 +127,17 @@ npm run start-dev
 - Path: `{url}/auth/login`
 - Description: used to log into the application
 - Request Body:
+
+```bash
   {
   "phoneNumber": "081234567890",
   "password": "hapihapihapi"
   }
+```
+
 - Response Body: `200 OK`
 
-```
+```bash
 {
     "message": "Log in success",
     "data": {
@@ -145,6 +149,9 @@ npm run start-dev
 }
 ```
 
+> [!NOTE]
+> Copy the token and paste it into authorization
+
 ### **Profile**
 
 **1. Get Profile**
@@ -155,7 +162,7 @@ npm run start-dev
 - Description: used to view the profile
 - Response Body: `200 OK`
 
-```
+```bash
 {
     "message": "Get user success",
     "data": {
@@ -173,13 +180,17 @@ npm run start-dev
 - Authorization: Bearer Token
 - Description: used to change the profile
 - Request Body:
+
+```bash
   {
   "phoneNumber": "0000000000",
   "fullName": "Arina Menangis"
   }
+```
+
 - Response Body: `201 Created`
 
-```
+```bash
 {
     "message": "Update user success",
     "data": {
@@ -196,13 +207,17 @@ npm run start-dev
 - Authorization: Bearer Token
 - Description: used to create a new password
 - Request Body:
+
+```bash
   {
   "password": "hapihapihapi",
   "confirmPassword": "hapihapihapi"
   }
+```
+
 - Response Body: `201 Created`
 
-```
+```bash
 {
     "message": "Reset password success"
 }
@@ -218,7 +233,7 @@ npm run start-dev
 - Description: used to send the history after finishing driving
 - Response Body: `201 Created`
 
-```
+```bash
 {
     "message": "Add history success"
 }
@@ -232,7 +247,7 @@ npm run start-dev
 - Description: used to view all history
 - Response Body: `200 OK`
 
-```
+```bash
 {
     "message": "Get all history success",
     "data": [
