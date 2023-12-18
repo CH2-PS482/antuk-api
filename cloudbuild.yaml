@@ -22,4 +22,4 @@ steps:
       - "--set-secrets=DB_HOST=db-host:latest,DB_USERNAME=db-username:latest,DB_PASSWORD=db-password:latest,DB_NAME=db-name:latest,SECRETKEY=secret-key:latest"
 images:
   - "gcr.io/$PROJECT_ID/antuk-api:$COMMIT_SHA"
-logsBucket: "gs://antuk-bucket/logs"
+logsBucket: "gs://antuk-buckets/logs"
