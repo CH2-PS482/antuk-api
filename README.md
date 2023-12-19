@@ -129,7 +129,7 @@ npm run start-dev
 
 - Method: `POST`
 - Path: `{url}/auth/login`
-- Description: used to log into the application
+- Description: used to log into the application.
 - Request Body:
 
 ```bash
@@ -163,7 +163,7 @@ npm run start-dev
 - Method: `GET`
 - Path: `{url}/profile`
 - Authorization: Bearer Token
-- Description: used to view the profile
+- Description: used to view the profile.
 - Response Body: `200 OK`
 
 ```bash
@@ -182,7 +182,7 @@ npm run start-dev
 - Method: `PATCH`
 - Path: `{url}/profile/edit`
 - Authorization: Bearer Token
-- Description: used to change the profile
+- Description: used to change the profile.
 - Request Body:
 
 ```bash
@@ -210,7 +210,7 @@ npm run start-dev
 - Method: `PUT`
 - Path: `{url}/profile/reset-password`
 - Authorization: Bearer Token
-- Description: used to create a new password
+- Description: used to create a new password.
 - Request Body:
 
 ```bash
@@ -235,8 +235,10 @@ npm run start-dev
 - Method: `POST`
 - Path: `{url}/history`
 - Authorization: Bearer Token
-- Description: used to send the history after finishing driving
+- Description: used to send the history after finishing driving.
 - Response Body: `201 Created`
+
+No need to add a request body. This request are generated automaticly.
 
 ```bash
 {
@@ -249,35 +251,40 @@ npm run start-dev
 - Method: `GET`
 - Path: `{url}/history`
 - Authorization: Bearer Token
-- Description: used to view all history
+- Description: used to view all history.
 - Response Body: `200 OK`
 
 ```bash
 {
     "message": "Get all history success",
     "data": [
-        [
-            {
-                "idUser": "161da26f",
-                "idHistory": "0f3df87693",
-                "date": "18 Desember 2023",
-                "duration": "00:00:00",
-                "totalWarnings": 0
-            },
-            {
-                "idUser": "161da26f",
-                "idHistory": "185714018d",
-                "date": "17 Desember 2023",
-                "duration": "00:00:00",
-                "totalWarnings": 0
-            }
-        ]
+        {
+            "idUser": "161da26f",
+            "idHistory": "0f3df87693",
+            "date": "18 Desember 2023",
+            "duration": "00:00:00",
+            "totalWarnings": 0
+        },
+        {
+            "idUser": "161da26f",
+            "idHistory": "185714018d",
+            "date": "17 Desember 2023",
+            "duration": "00:00:00",
+            "totalWarnings": 0
+        }
     ]
 }
 ```
 
 ## Testing
 
-1. Open Postman
-2. Import `antuk-collection.json` to Collections (on the sidebar)
-3. Import `antuk-environment.json` to Environment.
+1. Open Postman.
+2. Click `Import` and select `antuk-collection.json` and `antuk-environment.json`
+   ![import](https://github.com/aqmarinas/dump/blob/main/antuk/import.PNG?raw=true)
+3. Import both.
+4. Go to `Environment` and adjust the URL. Make sure `url` variable is checked.
+   ![check](https://github.com/aqmarinas/dump/blob/main/antuk/variable.PNG?raw=true)
+5. On the right top, change environment to `Antuk`
+   ![environment](https://github.com/aqmarinas/dump/blob/main/antuk/select-environment.PNG?raw=true)
+6. Go to `Collection`, select a request, and click `Send` to test the APIs.
+   ![testing](https://github.com/aqmarinas/dump/blob/main/antuk/testing.PNG?raw=true)

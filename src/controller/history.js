@@ -2,7 +2,7 @@ const historyModel = require('../models/history')
 
 const addHistoryController = async (req, res) => {
     try {
-        // Get ID User
+        // Get ID User from active token
         const id_user = req.decodedToken.idUser; 
 
         await historyModel.addHistoryModel(id_user)
@@ -25,16 +25,16 @@ const getHistoryController = async (req, res) => {
 
         const history = await historyModel.getHistoryModel(user_id)
 
-        if (history === [ [] ]){
+        if (history.length > 0){
             res.status(200).json({
-                message: 'Get all history success'
+                message: 'Get all history success',
+                data: history,
+            })
+        } else {
+            res.status(200).json({
+                message: 'No history found'
             })
         }
-        res.status(200).json({
-            message: 'Get all history success',
-            data: history
-        })
-        console.log(history);
     } catch (error){
         res.status(500).json({
             message: 'Server error',

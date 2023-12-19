@@ -36,7 +36,8 @@ const getHistoryModel = async (user_id) => {
     const SQLQuery = `  SELECT * FROM history
                         WHERE id_user = '${user_id}'`
     const [historyData] = await dbPool.execute(SQLQuery)
-    return [historyData]
+    return historyData
+
 }
 
 module.exports = { addHistoryModel, getHistoryModel }
