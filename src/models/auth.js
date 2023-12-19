@@ -1,14 +1,15 @@
 const dbPool = require('../config/database')
 
 const bcrypt = require('bcrypt')
-const {uid} = require('uid')
+const { uid } = require('uid')
 
 const registerModel = async (body) => {
-    const {password} = body
+    const { password } = body
 
     const idUser = uid(8)
     const hashedPassword = await bcrypt.hash(password, 10)
 
+    // Validate phone number 
     const existingUserQuery = `     SELECT * FROM users 
                                     WHERE phoneNumber = '${body.phoneNumber}'`
     const [existingUserRows] = await dbPool.execute(existingUserQuery)
@@ -24,7 +25,8 @@ const registerModel = async (body) => {
                             '${body.fullName}', 
                             '${body.phoneNumber}',
                             '${hashedPassword}')`
-    return dbPool.execute(SQLQuery)
+    await dbPool.execute(SQLQuery)
+    return idUser
 }
 
 const loginModel = async (phoneNumber) => {
@@ -34,4 +36,4 @@ const loginModel = async (phoneNumber) => {
     return rows[0]
 }
 
-module.exports = {registerModel, loginModel}
+module.exports = { registerModel, loginModel }

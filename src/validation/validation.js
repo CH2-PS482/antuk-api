@@ -1,7 +1,7 @@
 const { registerSchema, loginSchema, editProfileSchema, resetPasswordSchema } = require("./userValidation")
 
 const registerValidation = async (req, res, next) => {
-    const {body} = req
+    const { body } = req
 
     try{
         await registerSchema.validateAsync(body)
@@ -15,7 +15,7 @@ const registerValidation = async (req, res, next) => {
 }
 
 const loginValidation = async (req, res, next) => {
-    const {body} = req
+    const { body } = req
 
     try{
         await loginSchema.validateAsync(body)
@@ -30,7 +30,7 @@ const loginValidation = async (req, res, next) => {
 
 const editProfileValidation = async (req, res, next) => {
     try{
-        const {body} = req
+        const { body } = req
 
         await editProfileSchema.validateAsync(body)
         next()
@@ -44,7 +44,7 @@ const editProfileValidation = async (req, res, next) => {
 
 const resetPasswordValidation = async (req, res, next) => {
     try{
-        const {body} = req
+        const { body } = req
 
         await resetPasswordSchema.validateAsync(body)
         next()
@@ -56,4 +56,4 @@ const resetPasswordValidation = async (req, res, next) => {
     }
 }
 
-module.exports = {registerValidation, loginValidation, editProfileValidation, resetPasswordValidation}
+module.exports = { registerValidation, loginValidation, editProfileValidation, resetPasswordValidation }

@@ -4,14 +4,14 @@ const jwt = require('jsonwebtoken')
 const authModel = require('../models/auth')
 
 const registerController = async (req, res) => {
-    const {body} = req
+    const { body } = req
     try{            
-        await authModel.registerModel(body)
+        const idUser = await authModel.registerModel(body)
 
         return res.status(201).json({
             message: 'Register success',
             data: {
-                // idUser: user.idUser,
+                idUser: idUser,
                 fullName: body.fullName,
                 phoneNumber: body.phoneNumber
             }
@@ -30,7 +30,7 @@ const registerController = async (req, res) => {
 }
 
 const loginController = async (req, res) => {
-    const {phoneNumber, password} = req.body
+    const { phoneNumber, password } = req.body
 
     try{
         const user = await authModel.loginModel(phoneNumber)
@@ -71,4 +71,4 @@ const loginController = async (req, res) => {
     }
 }
 
-module.exports = {registerController, loginController}
+module.exports = { registerController, loginController }

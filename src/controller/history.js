@@ -36,4 +36,4 @@ const getHistoryController = async (req, res) => {
     }
 }
 
-module.exports = {addHistoryController, getHistoryController}
+module.exports = { addHistoryController, getHistoryController }

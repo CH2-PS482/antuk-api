@@ -1,6 +1,6 @@
 const dbPool = require('../config/database')
 
-const {uid} = require('uid')
+const { uid } = require('uid')
 
 const addHistoryModel = async (id_user) => {
     const idHistory = uid(10)
@@ -35,9 +35,8 @@ const addHistoryModel = async (id_user) => {
 const getHistoryModel = async (user_id) => {
     const SQLQuery = `  SELECT * FROM history
                         WHERE id_user = '${user_id}'`
-                        console.log(user_id);
     const [historyData] = await dbPool.execute(SQLQuery)
     return [historyData]
 }
 
-module.exports = {addHistoryModel, getHistoryModel}
+module.exports = { addHistoryModel, getHistoryModel }

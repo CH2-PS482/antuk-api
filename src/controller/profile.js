@@ -25,22 +25,27 @@ const editProfileController = async (req, res) => {
     const {body} = req
     
     try {
-        const user = await profileModel.updateProfileModel(body, req.decodedToken)
-        if (user){
+        const idUser = await profileModel.updateProfileModel(body, req.decodedToken)
+        if (idUser){
             res.status(201).json({
                 message: 'Update user success',
                 data: {
+                    idUser: idUser,
                     phoneNumber: body.phoneNumber,
                     fullName: body.fullName
                 }
             })
         }
     } catch (error){
-            res.status(500).json({
+        if (error.message === 'Phone number already registered'){
+            return res.status(400).json({
+                message: error.message
+            })
+        }
+        res.status(500).json({
             message: 'Server error',
             serverMessage: error.message
         })
-
     }
 }
 
@@ -63,4 +68,4 @@ const resetPasswordController = async (req, res) => {
     }
 }
 
-module.exports = {getProfileController, editProfileController, resetPasswordController}
+module.exports = { getProfileController, editProfileController, resetPasswordController }
