@@ -2,7 +2,7 @@ const dbPool = require('../config/database')
 
 const {uid} = require('uid')
 
-const addHistoryModel = async () => {
+const addHistoryModel = async (id_user) => {
     const idHistory = uid(10)
 
     function getCurrentDate() {
@@ -24,17 +24,18 @@ const addHistoryModel = async () => {
 
     // TODO: trigger totalDuration & totalWarnings
 
-    const SQLQuery = `  INSERT INTO history (idHistory, date)
-                        VALUES ('${idHistory}', '${date}')`
+    const SQLQuery = `  INSERT INTO history (id_user, idHistory, date)
+                        VALUES ('${id_user}','${idHistory}', '${date}')`
                             
-    // const SQLQuery = `  INSERT INTO history (idHistory, date, duration, totalWarnings)
-    //                     VALUES ('${idHistory}', '${date}', '${duration}', '${totalWarnings}')`
+    // const SQLQuery = `  INSERT INTO history (id_user, idHistory, date, duration, totalWarnings)
+    //                     VALUES ('${id_user}', '${idHistory}', '${date}', '${duration}', '${totalWarnings}')`
     return dbPool.execute(SQLQuery)
 }
 
-const getHistoryModel = async () => {
-    const SQLQuery = `SELECT * FROM history`
-    // return dbPool.execute(SQLQuery)
+const getHistoryModel = async (user_id) => {
+    const SQLQuery = `  SELECT * FROM history
+                        WHERE id_user = '${user_id}'`
+                        console.log(user_id);
     const [historyData] = await dbPool.execute(SQLQuery)
     return [historyData]
 }

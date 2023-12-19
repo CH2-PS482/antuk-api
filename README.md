@@ -8,6 +8,7 @@ Antuk (Anti-Ngantuk) aims to create an efficient system to prevent drowsiness wh
 - [Installation](https://github.com/aqmarinas/antuk?tab=readme-ov-file#installation)
 - [Start the Server](https://github.com/aqmarinas/antuk?tab=readme-ov-file#start-the-server)
 - [API Endpoints](https://github.com/aqmarinas/antuk?tab=readme-ov-file#api-endpoints)
+- Testing (Coming Soon)
 
 ## Tech Stack
 
@@ -268,3 +269,7 @@ npm run start-dev
     ]
 }
 ```
+
+## Testing
+
+(coming soon)

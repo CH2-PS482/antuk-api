@@ -20,8 +20,9 @@ app.use('/auth', authRoutes)
 app.use('/profile', profileRoutes)
 app.use('/history', historyRoutes)
 
+// Running in local
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`)
+    console.log(`Server running at http://localhost:${PORT}`) 
 })
 
 // Handler for root endpoint

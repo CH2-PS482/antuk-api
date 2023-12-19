@@ -3,7 +3,6 @@ const dbPool = require('../config/database')
 const bcrypt = require('bcrypt')
 const {uid} = require('uid')
 
-
 const registerModel = async (body) => {
     const {password} = body
 

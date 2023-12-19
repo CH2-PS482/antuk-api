@@ -12,7 +12,7 @@ const accessValidation = (req, res, next) => {
         })
     }
 
-    // Verify JWT token with SECRETKEY env
+    // Verify JWT token with SECRETKEY `.env`
     jwt.verify(token, process.env.SECRETKEY, (err, decoded) => {
         if (err) {
             return res.status(401).json({

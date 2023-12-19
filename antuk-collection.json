@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "18069e40-8403-4a18-9cb9-e73d2c391163",
-		"name": "Antuk (Anti-Ngantuk for Car and Truck Drivers)",
-		"description": "Base URL: localhost:4000 (changed soon)",
+		"name": "Antuk (Testing)",
+		"description": "URL: [https://antuk-api-6zs7zupnrq-et.a.run.app/](https://antuk-api-6zs7zupnrq-et.a.run.app/)\n\nBackup URL: [https://antuk-api-axbdjvi6sq-et.a.run.app/](https://antuk-api-axbdjvi6sq-et.a.run.app/)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29991228"
 	},
@@ -41,22 +41,22 @@
 					"urlencoded": [
 						{
 							"key": "fullName",
-							"value": "",
+							"value": "Test",
 							"type": "text"
 						},
 						{
 							"key": "phoneNumber",
-							"value": "",
+							"value": "12345678890",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "",
+							"value": "akulelah",
 							"type": "text"
 						},
 						{
 							"key": "confirmPassword",
-							"value": "",
+							"value": "akulelah",
 							"type": "text"
 						}
 					]
@@ -69,23 +69,6 @@
 					"path": [
 						"auth",
 						"register"
-					],
-					"query": [
-						{
-							"key": "fullname",
-							"value": "Arina",
-							"disabled": true
-						},
-						{
-							"key": "phoneNumber",
-							"value": "089595959595",
-							"disabled": true
-						},
-						{
-							"key": "password",
-							"value": "happyhappy",
-							"disabled": true
-						}
 					]
 				},
 				"description": "This endpoint is used for register a new user account"
@@ -102,12 +85,12 @@
 					"urlencoded": [
 						{
 							"key": "phoneNumber",
-							"value": "",
+							"value": "12345678890",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "",
+							"value": "akulelah",
 							"type": "text"
 						}
 					]
@@ -137,7 +120,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6IjAwMDAwMDAwMDAiLCJpZFVzZXIiOiI0MzA0N2ZhMiIsImlhdCI6MTcwMjgwOTQ0NiwiZXhwIjoxNzAzNDE0MjQ2fQ.1dNJu_3_lKpCN-hJE1--sGjmtp2XZoMzLaNBP__JKYE",
+							"value": "INPUT TOKEN HERE!",
 							"type": "string"
 						}
 					]
@@ -174,7 +157,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6IjAwMDAwMDAwMDAiLCJpZFVzZXIiOiI0MzA0N2ZhMiIsImlhdCI6MTcwMjgwOTQ0NiwiZXhwIjoxNzAzNDE0MjQ2fQ.1dNJu_3_lKpCN-hJE1--sGjmtp2XZoMzLaNBP__JKYE",
+							"value": "INPUT TOKEN HERE!",
 							"type": "string"
 						}
 					]
@@ -186,12 +169,12 @@
 					"urlencoded": [
 						{
 							"key": "phoneNumber",
-							"value": "0000000000",
+							"value": "1234567890",
 							"type": "text"
 						},
 						{
 							"key": "fullName",
-							"value": "Arina Menangis",
+							"value": "Arina Lelah",
 							"type": "text"
 						}
 					]
@@ -218,7 +201,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6IjAwMDAwMDAwMDAiLCJpZFVzZXIiOiI0MzA0N2ZhMiIsImlhdCI6MTcwMjgwOTQ0NiwiZXhwIjoxNzAzNDE0MjQ2fQ.1dNJu_3_lKpCN-hJE1--sGjmtp2XZoMzLaNBP__JKYE",
+							"value": "INPUT TOKEN HERE!",
 							"type": "string"
 						}
 					]
@@ -230,12 +213,12 @@
 					"urlencoded": [
 						{
 							"key": "password",
-							"value": "",
+							"value": "seblakmewek",
 							"type": "text"
 						},
 						{
 							"key": "confirmPassword",
-							"value": "",
+							"value": "seblakmewek",
 							"type": "text"
 						}
 					]
@@ -262,7 +245,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6IjA4MTIzNDU2Nzg5MCIsImlkVXNlciI6ImMzNjFjOTJlIiwiaWF0IjoxNzAyNzUxOTY3LCJleHAiOjE3MDMzNTY3Njd9.J_ASlPUWt5ec0T5-lVLENhw2mQ51kP8U5UsE1kynVB8",
+							"value": "INPUT TOKEN HERE!",
 							"type": "string"
 						}
 					]
@@ -294,7 +277,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZU51bWJlciI6IjAwMDAwMDAwMDAiLCJpZFVzZXIiOiI0MzA0N2ZhMiIsImlhdCI6MTcwMjgwOTQ0NiwiZXhwIjoxNzAzNDE0MjQ2fQ.1dNJu_3_lKpCN-hJE1--sGjmtp2XZoMzLaNBP__JKYE",
+							"value": "INPUT TOKEN HERE!",
 							"type": "string"
 						}
 					]

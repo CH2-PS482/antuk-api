@@ -2,7 +2,10 @@ const historyModel = require('../models/history')
 
 const addHistoryController = async (req, res) => {
     try {
-        await historyModel.addHistoryModel()
+        // Get ID User
+        const id_user = req.decodedToken.idUser; 
+
+        await historyModel.addHistoryModel(id_user)
 
         res.status(201).json({
             message: 'Add history success',
@@ -17,8 +20,10 @@ const addHistoryController = async (req, res) => {
 
 const getHistoryController = async (req, res) => {
     try {
-        const history = await historyModel.getHistoryModel()
+        // Get ID user from active token
+        const user_id = req.decodedToken.idUser 
 
+        const history = await historyModel.getHistoryModel(user_id)
         res.status(200).json({
             message: 'Get all history success',
             data: history
