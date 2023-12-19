@@ -3,7 +3,7 @@
 Antuk (Anti-Ngantuk) aims to create an efficient system to prevent drowsiness while driving or operating machinery. This API provides functionalities for user registration, login, profile management, and history tracking. With features tailored to monitor and alert users during extended periods of activity, this API prioritizes safety and aims to reduce accidents caused by drowsiness or fatigue.
 
 - **URL**: https://antuk-api-6zs7zupnrq-et.a.run.app/
-- **Backup URL**: https://antuk-api-6zs7zupnrq-et.a.run.app/
+- **Backup URL**: https://antuk-api-axbdjvi6sq-et.a.run.app
 
 ## **Table of Contents**
 
@@ -239,9 +239,11 @@ npm run start-dev
 - Path: `{url}/history`
 - Authorization: Bearer Token
 - Description: used to send the history after finishing driving.
-- Response Body: `201 Created`
 
-No need to add a request body. This request are generated automaticly.
+  > [!NOTE]
+  > No need to add a request body. This request are generated automaticly.
+
+- Response Body: `201 Created`
 
 ```bash
 {
@@ -296,4 +298,5 @@ No need to add a request body. This request are generated automaticly.
    ![environment](https://github.com/aqmarinas/dump/blob/main/antuk/select-environment.PNG?raw=true)
 
 6. Go to `Collection`, select a request, and click `Send` to test the APIs.
+
    ![testing](https://github.com/aqmarinas/dump/blob/main/antuk/testing.PNG?raw=true)
