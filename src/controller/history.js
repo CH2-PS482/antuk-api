@@ -24,10 +24,17 @@ const getHistoryController = async (req, res) => {
         const user_id = req.decodedToken.idUser 
 
         const history = await historyModel.getHistoryModel(user_id)
+
+        if (history === [ [] ]){
+            res.status(200).json({
+                message: 'Get all history success'
+            })
+        }
         res.status(200).json({
             message: 'Get all history success',
             data: history
         })
+        console.log(history);
     } catch (error){
         res.status(500).json({
             message: 'Server error',

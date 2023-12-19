@@ -8,7 +8,7 @@ Antuk (Anti-Ngantuk) aims to create an efficient system to prevent drowsiness wh
 - [Installation](https://github.com/aqmarinas/antuk?tab=readme-ov-file#installation)
 - [Start the Server](https://github.com/aqmarinas/antuk?tab=readme-ov-file#start-the-server)
 - [API Endpoints](https://github.com/aqmarinas/antuk?tab=readme-ov-file#api-endpoints)
-- Testing (Coming Soon)
+- [Testing](https://github.com/aqmarinas/antuk?tab=readme-ov-file#testing)
 
 ## Tech Stack
 
@@ -18,7 +18,7 @@ Antuk (Anti-Ngantuk) aims to create an efficient system to prevent drowsiness wh
 
 - **bcrypt**: used for password hashing.
 - **body-parser**: for handle URL-encoded data.
-- **dotenv**: loads environment variables from a `.env` file into `process.env`.
+- **dotenv**: loads environment variables from a `.env` file into `process.env`
 - **express**: create API.
 - **joi**: used for input validation.
 - **jsonwebtoken**: used to generate and verify JSON Web Tokens (JWTs) in authentication workflows.
@@ -34,13 +34,13 @@ Antuk (Anti-Ngantuk) aims to create an efficient system to prevent drowsiness wh
 
 ## Installation
 
-1. Clone this repository to your local machine
+1. Clone this repository to your local machine.
 
 ```bash
 git clone https://github.com/aqmarinas/antuk.git
 ```
 
-2. Change the directory
+2. Change the directory.
 
 ```bash
 cd antuk
@@ -52,9 +52,11 @@ cd antuk
 npm install LIBRARY-NAME
 ```
 
-3. Import 'antuk.sql; to MySQL GUI Tool
+3. Create database.
 
-4. Setting up `.env.example` file
+4. Import `antuk.sql  `
+
+5. Setting up `.env.example` file.
 
 ```bash
 PORT=
@@ -68,7 +70,7 @@ SECRETKEY=
 ```
 
 > [!WARNING]
-> Don't forget to rename `.env.example` file to '.env'
+> Don't forget to rename `.env.example` file to `.env`
 
 ## Start the Server
 
@@ -90,7 +92,7 @@ npm run start-dev
 
 - Method: **ALL**
 - Path: `{url}/`
-- Description: used for check server status and connectivity
+- Description: used for check server status and connectivity.
 
 ### **Auth**
 
@@ -98,7 +100,7 @@ npm run start-dev
 
 - Method: `POST`
 - Path: `{url}/auth/register`
-- Description: used to register a new user account
+- Description: used to register a new user account.
 - Request Body:
 
 ```bash
@@ -116,6 +118,7 @@ npm run start-dev
 {
     "message": "Register success",
     "data": {
+        "idUser": "161da26f",
         "fullName": "Arina Menangis",
         "phoneNumber": "081234567890"
     }
@@ -195,6 +198,7 @@ npm run start-dev
 {
     "message": "Update user success",
     "data": {
+        "idUser": "161da26f",
         "phoneNumber": "0000000000",
         "fullName": "Arina Menangis"
     }
@@ -254,12 +258,14 @@ npm run start-dev
     "data": [
         [
             {
+                "idUser": "161da26f",
                 "idHistory": "0f3df87693",
                 "date": "18 Desember 2023",
                 "duration": "00:00:00",
                 "totalWarnings": 0
             },
             {
+                "idUser": "161da26f",
                 "idHistory": "185714018d",
                 "date": "17 Desember 2023",
                 "duration": "00:00:00",
@@ -272,4 +278,6 @@ npm run start-dev
 
 ## Testing
 
-(coming soon)
+1. Open Postman
+2. Import `antuk-collection.json` to Collections (on the sidebar)
+3. Import `antuk-environment.json` to Environment.
