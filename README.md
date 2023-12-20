@@ -57,7 +57,7 @@ npm install LIBRARY-NAME
 
 3. Create database.
 
-4. Import `antuk.sql  `
+4. Import `antuk.sql`
 
 5. Setting up `.env.example` file.
 
@@ -235,13 +235,13 @@ npm run start-dev
 
 **1. Add History**
 
+> [!NOTE]
+> No need to add a request body. This request are generated automaticly.
+
 - Method: `POST`
 - Path: `{url}/history`
 - Authorization: Bearer Token
 - Description: used to send the history after finishing driving.
-
-  > [!NOTE]
-  > No need to add a request body. This request are generated automaticly.
 
 - Response Body: `201 Created`
 
