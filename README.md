@@ -235,9 +235,6 @@ npm run start-dev
 
 **1. Add History**
 
-> [!NOTE]
-> No need to add a request body. This request are generated automaticly.
-
 - Method: `POST`
 - Path: `{url}/history`
 - Authorization: Bearer Token
@@ -250,6 +247,9 @@ npm run start-dev
     "message": "Add history success"
 }
 ```
+
+> [!NOTE]
+> No need to add a request body. This request are generated automaticly.
 
 **2. Get All History**
 
